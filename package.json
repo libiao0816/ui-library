@@ -12,6 +12,7 @@
     "sync:h5": "rm -rf packages/docs/public/h5 && cp -R packages/example/dist packages/docs/public/h5",
     "build:site": "pnpm build:h5 && pnpm sync:h5 && pnpm build:docs",
     "test": "pnpm --filter @lb/taro-ui test",
+    "lint": "eslint \"packages/*/src/**/*.{ts,tsx}\"",
     "changeset": "changeset",
     "release": "pnpm build && changeset publish",
     "prepare": "husky"
