@@ -10,7 +10,6 @@
     "framework": "React"
   },
   "scripts": {
-    "prepare": "husky",
     "new": "taro new",
     "build:weapp": "taro build --type weapp",
     "dev:weapp": "taro build --type weapp --watch",
@@ -39,10 +38,6 @@
   },
   "devDependencies": {
     "@tarojs/plugin-generator": "4.3.0",
-    "@commitlint/cli": "^19.8.1",
-    "@commitlint/config-conventional": "^19.8.1",
-    "lint-staged": "^16.1.2",
-    "husky": "^9.1.7",
     "stylelint-config-standard": "^38.0.0",
     "@babel/core": "^7.24.4",
     "@tarojs/cli": "4.3.0",
