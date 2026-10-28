@@ -1,0 +1,15 @@
+{
+  "miniprogramRoot": "./dist",
+  "projectname": "example",
+  "description": "ui库的示例",
+  "appid": "touristappid",
+  "setting": {
+    "urlCheck": true,
+    "es6": false,
+    "enhance": false,
+    "compileHotReLoad": true,
+    "postcss": false,
+    "minified": false
+  },
+  "compileType": "miniprogram"
+}

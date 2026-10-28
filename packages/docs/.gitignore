@@ -1,0 +1,4 @@
+# dumi 专属临时产物（通用规则由根目录 .gitignore 统一维护）
+.dumi/tmp
+.dumi/tmp-production
+.turbopack

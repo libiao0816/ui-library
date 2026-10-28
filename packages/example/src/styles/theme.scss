@@ -1,0 +1,30 @@
+/* 主题定制：覆盖组件库的 CSS 变量即可，不限文件、不限引入顺序。
+   注意：微信小程序不支持 :root 选择器（会导致整条规则失效），小程序端用 page。
+   H5 端如需覆盖，另写 :root { --lb-color-primary: xxx; } 即可。 */
+// page {
+//   --lb-color-primary: green;
+// }
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --lb-color-primary: #5dade2;
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --lb-color-primary: green;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  page {
+    --lb-color-primary: #5dade2;
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  page {
+    --lb-color-primary: green;
+  }
+}

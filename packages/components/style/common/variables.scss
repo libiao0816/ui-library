@@ -1,0 +1,9 @@
+/* 颜色 token 的编译期兜底默认值。
+   运行时主题定制无需改这里：在业务任意样式文件写
+   page, :root { --lb-color-primary: xxx; } 即可覆盖（不限文件、不限顺序）。 */
+$lb-color-primary: #1677ff !default; /* 品牌主色 */
+$lb-color-danger: #ee0a24 !default; /* 危险色 */
+$lb-color-text: #333333 !default; /* 主文本色 */
+$lb-color-border: #e4e6eb !default; /* 边框/轨道底色 */
+$lb-color-white: #ffffff !default; /* 前景白色 */
+

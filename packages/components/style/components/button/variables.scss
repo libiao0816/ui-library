@@ -1,0 +1,23 @@
+/* Button 组件变量（尺寸与动效；颜色走 CSS 变量，见 ../../common/variables.scss） */
+$lb-button-border-radius: 8px !default;
+$lb-button-transition-duration: 0.2s !default;
+$lb-button-disabled-opacity: 0.5 !default;
+
+/* 尺寸 */
+$lb-button-large-height: 48px !default;
+$lb-button-large-padding: 0 24px !default;
+$lb-button-large-font-size: 18px !default;
+
+$lb-button-normal-height: 40px !default;
+$lb-button-normal-padding: 0 16px !default;
+$lb-button-normal-font-size: 15px !default;
+
+$lb-button-small-height: 32px !default;
+$lb-button-small-padding: 0 12px !default;
+$lb-button-small-font-size: 13px !default;
+
+/* 加载图标 */
+$lb-button-loading-size: 16px !default;
+$lb-button-loading-border-width: 2px !default;
+$lb-button-loading-color: currentColor !default;
+$lb-button-loading-margin-right: 8px !default;

@@ -1,0 +1,41 @@
+.index {
+  padding: 32px 24px;
+  min-height: 100vh;
+  box-sizing: border-box;
+  background: #f7f8fa;
+
+  &__title {
+    display: block;
+    font-size: 32px;
+    font-weight: 600;
+    margin-bottom: 24px;
+  }
+
+  &__list {
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 24px;
+    border-bottom: 1px solid #f0f0f0;
+    font-size: 28px;
+
+    &:last-child {
+      border-bottom: none;
+    }
+
+    &:active {
+      background: #f7f8fa;
+    }
+  }
+
+  &__arrow {
+    color: rgba(0, 0, 0, 0.3);
+    font-size: 32px;
+  }
+}

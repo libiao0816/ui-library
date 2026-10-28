@@ -1,0 +1,46 @@
+/* 文档站右侧预览：无手机边框，干净的矩形区域 */
+
+.lb-phone {
+  position: fixed;
+  top: 96px;
+  right: 40px;
+  z-index: 10;
+
+  width: 320px;
+  background: transparent;
+
+  iframe {
+    display: block;
+    width: 100%;
+    height: 568px;
+    border: none;
+    background: transparent;
+  }
+
+  &__caption {
+    margin-top: 10px;
+    text-align: center;
+    font-size: 12px;
+    line-height: 1.6;
+    color: rgba(0, 0, 0, 0.45);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .lb-phone__caption {
+      color: rgba(255, 255, 255, 0.45);
+    }
+  }
+
+  // 窄屏隐藏（避免遮挡正文）
+  @media (max-width: 1280px) {
+    display: none;
+  }
+}
+
+/* 给文档主体让出右侧空间，避免被预览区遮挡 */
+@media (min-width: 1281px) {
+  .dumi-default-doc-layout > main,
+  .dumi-default-doc-layout-main {
+    padding-right: 400px !important;
+  }
+}

@@ -1,0 +1,30 @@
+.demo-page {
+  padding: 24px;
+  background: #fff;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+.demo-section {
+  margin-bottom: 32px;
+
+  &__title {
+    display: block;
+    font-size: 26px;
+    color: rgba(0, 0, 0, 0.6);
+    margin-bottom: 16px;
+  }
+
+  &__hint {
+    display: block;
+    margin-top: 12px;
+    font-size: 24px;
+    color: rgba(0, 0, 0, 0.45);
+  }
+}
+
+.demo-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}

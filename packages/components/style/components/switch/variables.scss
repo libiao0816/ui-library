@@ -1,0 +1,20 @@
+/* Switch 组件变量（尺寸与动效；颜色走 CSS 变量，见 ../../common/variables.scss） */
+$lb-switch-width: 52px !default;
+$lb-switch-height: 32px !default;
+$lb-switch-disabled-opacity: 0.4 !default;
+$lb-switch-transition-duration: 0.3s !default;
+
+$lb-switch-node-size: 28px !default;
+$lb-switch-node-shadow: 0 2px 4px rgba(0, 0, 0, 0.15) !default;
+$lb-switch-node-offset: 20px !default;
+
+$lb-switch-icon-size: 14px !default;
+$lb-switch-icon-border-width: 2px !default;
+$lb-switch-icon-color: #999999 !default;
+
+/* 小尺寸 */
+$lb-switch-small-width: 36px !default;
+$lb-switch-small-height: 22px !default;
+$lb-switch-small-node-size: 18px !default;
+$lb-switch-small-node-offset: 14px !default;
+$lb-switch-small-icon-size: 10px !default;

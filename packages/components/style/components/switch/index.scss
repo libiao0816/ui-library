@@ -1,0 +1,91 @@
+@use '../../common/variables' as cv;
+@use './variables' as *;
+
+.lb-switch {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  box-sizing: content-box;
+  width: $lb-switch-width;
+  height: $lb-switch-height;
+  border-radius: $lb-switch-height;
+  background-color: var(--lb-color-border, #{cv.$lb-color-border});
+  transition: background-color $lb-switch-transition-duration ease;
+  overflow: hidden;
+  /* 避免小程序中点击高亮 */
+  -webkit-tap-highlight-color: transparent;
+
+  &--checked {
+    background-color: var(--lb-color-primary, #{cv.$lb-color-primary});
+  }
+
+  &--disabled {
+    opacity: $lb-switch-disabled-opacity;
+  }
+
+  &__node {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: $lb-switch-node-size;
+    height: $lb-switch-node-size;
+    border-radius: 50%;
+    background-color: var(--lb-color-white, #{cv.$lb-color-white});
+    box-shadow: $lb-switch-node-shadow;
+    transition: transform $lb-switch-transition-duration cubic-bezier(0.3, 1.05, 0.4, 1);
+  }
+
+  &--checked &__node {
+    transform: translateX($lb-switch-node-offset);
+  }
+
+  /* 加载态图标 */
+  &__icon {
+    width: $lb-switch-icon-size;
+    height: $lb-switch-icon-size;
+    border-radius: 50%;
+    border: $lb-switch-icon-border-width solid $lb-switch-icon-color;
+    border-top-color: transparent;
+    opacity: 0;
+    transition: opacity $lb-switch-transition-duration ease;
+  }
+
+  &--loading &__icon {
+    opacity: 1;
+    animation: lb-switch-spin 0.6s linear infinite;
+  }
+
+  /* 尺寸 */
+  &--small {
+    width: $lb-switch-small-width;
+    height: $lb-switch-small-height;
+    border-radius: $lb-switch-small-height;
+
+    .lb-switch__node {
+      width: $lb-switch-small-node-size;
+      height: $lb-switch-small-node-size;
+    }
+
+    .lb-switch__icon {
+      width: $lb-switch-small-icon-size;
+      height: $lb-switch-small-icon-size;
+    }
+  }
+
+  &--small#{&}--checked &__node {
+    transform: translateX($lb-switch-small-node-offset);
+  }
+}
+
+@keyframes lb-switch-spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}

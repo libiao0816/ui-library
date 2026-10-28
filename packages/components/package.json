@@ -1,0 +1,71 @@
+{
+  "name": "@lb/taro-ui",
+  "version": "0.0.0",
+  "description": "面向 Taro + React 小程序的组件库",
+  "license": "MIT",
+  "main": "lib/index.js",
+  "module": "es/index.js",
+  "types": "types/index.d.ts",
+  "sideEffects": [
+    "**/*.scss",
+    "**/*.css"
+  ],
+  "files": [
+    "es",
+    "lib",
+    "types",
+    "style",
+    "README.md"
+  ],
+  "keywords": [
+    "taro",
+    "react",
+    "mini-program",
+    "ui"
+  ],
+  "browserslist": [
+    "iOS >= 12",
+    "Android >= 8",
+    "Chrome >= 80"
+  ],
+  "dependencies": {
+    "classnames": "^2.5.1"
+  },
+  "peerDependencies": {
+    "@tarojs/components": ">=4.0.0",
+    "@tarojs/taro": ">=4.0.0",
+    "react": ">=18.0.0",
+    "react-dom": ">=18.0.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.25.0",
+    "@babel/core": "^7.25.0",
+    "@babel/preset-env": "^7.25.0",
+    "@babel/preset-react": "^7.24.0",
+    "@babel/preset-typescript": "^7.24.0",
+    "@tarojs/components": "^4.3.0",
+    "@tarojs/taro": "^4.3.0",
+    "@testing-library/jest-dom": "^6.5.0",
+    "@testing-library/react": "^16.0.0",
+    "@types/jest": "^29.5.14",
+    "@types/react": "^18.3.0",
+    "babel-jest": "^29.7.0",
+    "cross-env": "^7.0.3",
+    "jest": "^29.7.0",
+    "jest-environment-jsdom": "^29.7.0",
+    "rimraf": "^6.0.0",
+    "typescript": "^5.6.0"
+  },
+  "scripts": {
+    "clean": "rimraf es lib types",
+    "dev:esm": "cross-env BUILD_FORMAT=esm babel src --out-dir es --extensions .ts,.tsx --watch",
+    "dev:types": "tsc -p tsconfig.build.json --watch",
+    "build:esm": "cross-env BUILD_FORMAT=esm babel src --out-dir es --extensions .ts,.tsx",
+    "build:cjs": "cross-env BUILD_FORMAT=cjs babel src --out-dir lib --extensions .ts,.tsx",
+    "build:types": "tsc -p tsconfig.build.json",
+    "build": "pnpm clean && pnpm build:esm && pnpm build:cjs && pnpm build:types",
+    "prepublishOnly": "pnpm build",
+    "test": "jest",
+    "test:watch": "jest --watch"
+  }
+}
