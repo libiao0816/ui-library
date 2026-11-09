@@ -18,3 +18,14 @@ catalog:
     '@tarojs/webpack5-runner': 4.3.0
     babel-preset-taro: 4.3.0
     eslint-config-taro: 4.3.0
+
+# pnpm 10+ 默认不执行依赖的安装脚本，这里显式批准需要编译原生二进制的包
+# core-js 的 postinstall 只是打印赞助信息，明确忽略
+allowBuilds:
+  '@parcel/watcher': true
+  '@swc/core': true
+  '@tarojs/binding': true
+  '@tarojs/cli': true
+  core-js: false
+  core-js-pure: false
+  esbuild: true
