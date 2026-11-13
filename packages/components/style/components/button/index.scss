@@ -1,8 +1,10 @@
-@use '../../common/variables' as cv;
+@use '../../variables' as cv;
 @use './variables' as *;
 
 .lb-button {
+  position: relative;
   display: inline-flex;
+  flex-shrink: 0;
   align-items: center;
   justify-content: center;
   box-sizing: border-box;
@@ -10,11 +12,25 @@
   padding: $lb-button-normal-padding;
   border: 1px solid var(--lb-color-border, #{cv.$lb-color-border});
   border-radius: $lb-button-border-radius;
+  outline: none;
   font-size: $lb-button-normal-font-size;
+  font-weight: 500;
   line-height: 1;
+  white-space: nowrap;
   color: var(--lb-color-text, #{cv.$lb-color-text});
   background-color: var(--lb-color-white, #{cv.$lb-color-white});
-  transition: opacity $lb-button-transition-duration ease;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+  cursor: pointer;
+  user-select: none;
+  vertical-align: middle;
+  transition:
+    color $lb-button-transition-duration ease,
+    background-color $lb-button-transition-duration ease,
+    border-color $lb-button-transition-duration ease,
+    box-shadow $lb-button-transition-duration ease,
+    opacity $lb-button-transition-duration ease,
+    filter $lb-button-transition-duration ease,
+    transform $lb-button-transition-duration ease;
   /* 避免小程序中点击高亮 */
   -webkit-tap-highlight-color: transparent;
 
@@ -23,18 +39,21 @@
     color: var(--lb-color-white, #{cv.$lb-color-white});
     background-color: var(--lb-color-primary, #{cv.$lb-color-primary});
     border-color: var(--lb-color-primary, #{cv.$lb-color-primary});
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
   }
 
   &--danger {
     color: var(--lb-color-white, #{cv.$lb-color-white});
     background-color: var(--lb-color-danger, #{cv.$lb-color-danger});
     border-color: var(--lb-color-danger, #{cv.$lb-color-danger});
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
   }
 
   &--text {
     color: var(--lb-color-primary, #{cv.$lb-color-primary});
     background-color: transparent;
     border-color: transparent;
+    box-shadow: none;
   }
 
   /* 尺寸 */
@@ -56,20 +75,57 @@
     width: 100%;
   }
 
+  /* 交互状态 */
+  @media (hover: hover) and (pointer: fine) {
+    &--default:not(.lb-button--disabled):not(.lb-button--loading):hover {
+      color: var(--lb-color-primary, #{cv.$lb-color-primary});
+      border-color: var(--lb-color-primary, #{cv.$lb-color-primary});
+      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
+    }
+
+    &--primary:not(.lb-button--disabled):not(.lb-button--loading):hover,
+    &--danger:not(.lb-button--disabled):not(.lb-button--loading):hover {
+      filter: brightness(1.08);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.16);
+    }
+
+    &--text:not(.lb-button--disabled):not(.lb-button--loading):hover {
+      background-color: rgba(0, 0, 0, 0.04);
+    }
+  }
+
+  &:not(.lb-button--disabled):not(.lb-button--loading):active {
+    filter: brightness(0.96);
+    transform: scale(0.98);
+  }
+
+  &:focus-visible {
+    box-shadow: 0 0 0 3px var(--lb-color-focus-shadow, rgba(22, 119, 255, 0.2));
+  }
+
   /* 禁用与加载态 */
   &--disabled,
   &--loading {
     opacity: $lb-button-disabled-opacity;
+    box-shadow: none;
+    cursor: not-allowed;
+  }
+
+  &--loading {
+    cursor: wait;
   }
 
   /* 内容 */
   &__content {
     display: inline-flex;
     align-items: center;
+    min-width: 0;
   }
 
   /* 加载图标 */
   &__loading {
+    flex-shrink: 0;
+    box-sizing: border-box;
     width: $lb-button-loading-size;
     height: $lb-button-loading-size;
     margin-right: $lb-button-loading-margin-right;

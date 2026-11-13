@@ -66,6 +66,8 @@
     "build": "pnpm clean && pnpm build:esm && pnpm build:cjs && pnpm build:types",
     "prepublishOnly": "pnpm build",
     "test": "jest",
-    "test:watch": "jest --watch"
+    "test:watch": "jest --watch",
+    "pack": "pnpm build && pnpm pack",
+    "pack:dry": "pnpm build && npm pack --dry-run"
   }
 }

@@ -3,7 +3,7 @@ import { View } from '@tarojs/components'
 import useControllableState from '../hooks/use-controllable-state'
 import type { SwitchProps } from './types'
 
-export default function Switch(props: SwitchProps) {
+export function Switch(props: SwitchProps) {
 
   const {
     checked,
@@ -45,3 +45,5 @@ export default function Switch(props: SwitchProps) {
     </View>
   )
 }
+
+export type { SwitchProps } from './types'

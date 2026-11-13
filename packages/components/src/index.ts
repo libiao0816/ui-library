@@ -1,2 +1,4 @@
-export { default as Button } from './button'
-export { default as Switch } from './switch'
+export { Button } from './button'
+export type { ButtonProps } from './button'
+export { Switch } from './switch'
+export type { SwitchProps } from './switch'

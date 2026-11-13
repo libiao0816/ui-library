@@ -2,7 +2,7 @@ import classnames from 'classnames'
 import { View } from '@tarojs/components'
 import type { ButtonProps } from './types'
 
-export default function Button(props: ButtonProps) {
+export function Button(props: ButtonProps) {
 
   const {
     variant = 'default',
@@ -32,6 +32,7 @@ export default function Button(props: ButtonProps) {
     <View
       className={classnames(...classNames)}
       {...rest}
+      ariaRole='button'
       onClick={() => {
         if (disabled || loading) return
         onClick?.()
@@ -42,3 +43,5 @@ export default function Button(props: ButtonProps) {
     </View>
   )
 }
+
+export type { ButtonProps } from './types'
