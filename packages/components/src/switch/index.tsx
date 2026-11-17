@@ -3,7 +3,7 @@ import { View } from '@tarojs/components'
 import useControllableState from '../hooks/use-controllable-state'
 import type { SwitchProps } from './types'
 
-export function Switch(props: SwitchProps) {
+export function LbSwitch(props: SwitchProps) {
 
   const {
     checked,

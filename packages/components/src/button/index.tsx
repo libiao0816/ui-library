@@ -2,7 +2,7 @@ import classnames from 'classnames'
 import { View } from '@tarojs/components'
 import type { ButtonProps } from './types'
 
-export function Button(props: ButtonProps) {
+export function LbButton(props: ButtonProps) {
 
   const {
     variant = 'default',

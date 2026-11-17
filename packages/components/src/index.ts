@@ -1,4 +1,4 @@
-export { Button } from './button'
+export { LbButton } from './button'
 export type { ButtonProps } from './button'
-export { Switch } from './switch'
+export { LbSwitch } from './switch'
 export type { SwitchProps } from './switch'
