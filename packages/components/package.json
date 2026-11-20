@@ -58,10 +58,10 @@
   },
   "scripts": {
     "clean": "rimraf es lib types",
-    "dev:esm": "cross-env BUILD_FORMAT=esm babel src --out-dir es --extensions .ts,.tsx --watch",
+    "dev:esm": "cross-env BUILD_FORMAT=esm babel src --out-dir es --extensions .ts,.tsx --ignore '**/*.test.tsx,**/*.test.ts' --watch",
     "dev:types": "tsc -p tsconfig.build.json --watch",
-    "build:esm": "cross-env BUILD_FORMAT=esm babel src --out-dir es --extensions .ts,.tsx",
-    "build:cjs": "cross-env BUILD_FORMAT=cjs babel src --out-dir lib --extensions .ts,.tsx",
+    "build:esm": "cross-env BUILD_FORMAT=esm babel src --out-dir es --extensions .ts,.tsx --ignore '**/*.test.tsx,**/*.test.ts'",
+    "build:cjs": "cross-env BUILD_FORMAT=cjs babel src --out-dir lib --extensions .ts,.tsx --ignore '**/*.test.tsx,**/*.test.ts'",
     "build:types": "tsc -p tsconfig.build.json",
     "build": "pnpm clean && pnpm build:esm && pnpm build:cjs && pnpm build:types",
     "prepublishOnly": "pnpm build",

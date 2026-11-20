@@ -3,11 +3,12 @@ process.env.BUILD_FORMAT = 'cjs'
 
 module.exports = {
   testEnvironment: 'jsdom',
+  testPathIgnorePatterns: ['/node_modules/', '<rootDir>/lib/', '<rootDir>/es/'],
   transform: {
-    '^.+\\.[tj]sx?$': ['babel-jest', { configFile: './babel.config.js' }]
+    '^.+\\.[tj]sx?$': ['babel-jest', { configFile: './babel.config.js' }],
   },
   moduleNameMapper: {
-    '^@tarojs/components$': '<rootDir>/test/mocks/taro-components.tsx'
+    '^@tarojs/components$': '<rootDir>/test/mocks/taro-components.tsx',
   },
-  setupFilesAfterEnv: ['<rootDir>/test/setup.ts']
+  setupFilesAfterEnv: ['<rootDir>/test/setup.ts'],
 }

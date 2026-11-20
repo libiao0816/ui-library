@@ -12,10 +12,10 @@
     "build": "pnpm --filter @lb/taro-ui build",
     "build:h5": "pnpm --filter example build:h5",
     "build:docs": "pnpm --filter lb-ui-docs build",
-    "sync:h5": "rm -rf packages/docs/public/h5 && cp -R packages/example/dist packages/docs/public/h5",
+    "sync:h5": "rm -rf apps/docs/public/h5 && cp -R apps/example/dist apps/docs/public/h5",
     "build:site": "pnpm build:h5 && pnpm sync:h5 && pnpm build:docs",
     "test": "pnpm --filter @lb/taro-ui test",
-    "lint": "eslint \"packages/*/src/**/*.{ts,tsx}\"",
+    "lint": "eslint \"{packages,apps}/*/src/**/*.{ts,tsx}\"",
     "changeset": "changeset",
     "release": "pnpm build && changeset publish",
     "prepare": "husky"
@@ -25,9 +25,49 @@
       "@commitlint/config-conventional"
     ]
   },
+  "stylelint": {
+    "extends": "stylelint-config-standard",
+    "ignoreFiles": [
+      "**/dist/**",
+      "**/.dumi/tmp/**",
+      "**/.dumi/tmp-production/**"
+    ],
+    "overrides": [
+      {
+        "files": [
+          "**/*.scss"
+        ],
+        "customSyntax": "postcss-scss"
+      }
+    ],
+    "rules": {
+      "no-empty-source": null,
+      "color-function-notation": null,
+      "color-function-alias-notation": null,
+      "alpha-value-notation": null,
+      "selector-type-no-unknown": [
+        true,
+        {
+          "ignoreTypes": [
+            "page"
+          ]
+        }
+      ],
+      "selector-class-pattern": "^[a-z][a-z0-9]*(?:-[a-z0-9]+)*(?:__[a-z0-9]+(?:-[a-z0-9]+)*)?(?:--[a-z0-9]+(?:-[a-z0-9]+)*)?$",
+      "media-feature-range-notation": "prefix"
+    }
+  },
   "lint-staged": {
-    "*.{md,json}": [
-      "prettier --write --no-error-on-unmatched-pattern"
+    "*.{js,ts,jsx,tsx}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.{css,scss}": [
+      "stylelint --fix",
+      "prettier --write"
+    ],
+    "*.{json,md}": [
+      "prettier --write"
     ]
   },
   "devDependencies": {
@@ -35,11 +75,15 @@
     "@commitlint/cli": "^19.8.1",
     "@commitlint/config-conventional": "^19.8.1",
     "eslint": "^8.57.0",
+    "eslint-config-prettier": "^10.1.8",
     "eslint-config-taro": "catalog:",
     "eslint-plugin-react": "^7.34.1",
     "eslint-plugin-react-hooks": "^4.4.0",
     "husky": "^9.1.7",
     "lint-staged": "^16.1.2",
-    "prettier": "^2.7.1"
+    "postcss-scss": "^4.0.9",
+    "prettier": "^2.7.1",
+    "stylelint": "^16.26.1",
+    "stylelint-config-standard": "^38.0.0"
   }
 }

@@ -4,8 +4,9 @@ import React from 'react'
 // 映射到标准 HTML 元素，避免 jsdom 下 "unrecognized tag" 警告
 function host(tag: string) {
   return React.forwardRef<any, any>((props, ref) => {
-    const { children, hoverClass, hoverStartTime, ariaHidden, ...rest } = props
-    return React.createElement(tag, { ...rest, ref }, children)
+    const { children, hoverClass, hoverStartTime, ariaHidden, ariaRole, ...rest } = props
+    // Taro 的 ariaRole 映射为标准 role，避免 React 的 ARIA 属性警告
+    return React.createElement(tag, { role: ariaRole, ...rest, ref }, children)
   })
 }
 

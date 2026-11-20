@@ -1,5 +1,6 @@
 packages:
     - 'packages/*'
+    - 'apps/*'
 
 # Taro 生态依赖统一版本管理，升级时只改这里
 catalog:

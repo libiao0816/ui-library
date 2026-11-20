@@ -27,5 +27,5 @@ coverage/
 /packages/components/es/
 /packages/components/types/
 
-# docs 站点内嵌的 H5 演示（由 sync:h5 从 packages/example/dist 复制生成）
-/packages/docs/public/h5/
+# docs 站点内嵌的 H5 演示（由 sync:h5 从 apps/example/dist 复制生成）
+/apps/docs/public/h5/
