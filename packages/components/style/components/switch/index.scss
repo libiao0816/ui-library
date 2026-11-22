@@ -12,16 +12,14 @@
   border-radius: $lb-switch-height;
   outline: none;
   background-color: var(--lb-color-switch-background, rgba(0, 0, 0, 0.15));
-  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.02);
+  box-shadow: inset 0 0 0 0.5px rgba(0, 0, 0, 0.02);
   cursor: pointer;
   user-select: none;
   vertical-align: middle;
-  transition:
-    background-color $lb-switch-transition-duration ease,
-    box-shadow $lb-switch-transition-duration ease,
-    opacity $lb-switch-transition-duration ease,
-    filter $lb-switch-transition-duration ease;
+  transition: background-color $lb-switch-transition-duration ease, box-shadow $lb-switch-transition-duration ease,
+    opacity $lb-switch-transition-duration ease, filter $lb-switch-transition-duration ease;
   overflow: hidden;
+
   /* 避免小程序中点击高亮 */
   -webkit-tap-highlight-color: transparent;
 
@@ -29,14 +27,12 @@
     background-color: var(--lb-color-primary, #{cv.$lb-color-primary});
   }
 
-  &:not(.lb-switch--disabled):not(.lb-switch--loading):active {
+  &:not(.lb-switch--disabled, .lb-switch--loading):active {
     filter: brightness(0.96);
   }
 
   &:focus-visible {
-    box-shadow:
-      0 0 0 3px var(--lb-color-focus-shadow, rgba(22, 119, 255, 0.2)),
-      inset 0 0 0 1px rgba(0, 0, 0, 0.02);
+    box-shadow: 0 0 0 1.5px var(--lb-color-focus-shadow, rgba(22, 119, 255, 0.2)), inset 0 0 0 0.5px rgba(0, 0, 0, 0.02);
   }
 
   &--disabled {

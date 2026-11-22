@@ -1,12 +1,12 @@
 # @lb/taro-ui
 
-面向 Taro 4 + React 18 小程序的基础组件库。
+面向 Taro 3.6+ / 4.x + React 18 小程序的基础组件库。
 
 ## 环境要求
 
-- Taro >= 4.0
+- Taro >= 3.6（已在 3.6.20 与 4.x 验证）
 - React >= 18
-- 设计稿基准：750（designWidth: 750）
+- 设计稿基准：375（designWidth: 375）
 
 ## 安装
 
@@ -17,25 +17,25 @@ pnpm add @lb/taro-ui
 ## 使用
 
 ```tsx
-import { Button } from '@lb/taro-ui'
+import { LbButton } from '@lb/taro-ui'
 import '@lb/taro-ui/style/components/button.scss'
 
 export default function Demo() {
-  return <Button variant="primary">提交</Button>
+  return <LbButton variant="primary">提交</LbButton>
 }
 ```
 
 ## API
 
-| 属性 | 类型 | 默认值 | 说明 |
-| --- | --- | --- | --- |
-| variant | 'primary' \\| 'default' \\| 'text' \\| 'danger' | 'default' | 视觉变体 |
-| size | 'large' \\| 'normal' \\| 'small' | 'normal' | 尺寸 |
-| block | boolean | false | 是否占满整行 |
-| loading | boolean | false | 加载态 |
-| disabled | boolean | false | 禁用态 |
-| className | string | '' | 追加类名 |
-| onClick | (e: ITouchEvent) => void | - | 点击回调 |
+| 属性      | 类型                     | 默认值       | 说明         |
+| --------- | ------------------------ | ------------ | ------------ | -------- | --------- | -------- |
+| variant   | 'primary' \\             | 'default' \\ | 'text' \\    | 'danger' | 'default' | 视觉变体 |
+| size      | 'large' \\               | 'normal' \\  | 'small'      | 'normal' | 尺寸      |
+| block     | boolean                  | false        | 是否占满整行 |
+| loading   | boolean                  | false        | 加载态       |
+| disabled  | boolean                  | false        | 禁用态       |
+| className | string                   | ''           | 追加类名     |
+| onClick   | (e: ITouchEvent) => void | -            | 点击回调     |
 
 ## 主题
 

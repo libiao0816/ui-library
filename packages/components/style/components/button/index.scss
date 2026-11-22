@@ -19,18 +19,15 @@
   white-space: nowrap;
   color: var(--lb-color-text, #{cv.$lb-color-text});
   background-color: var(--lb-color-white, #{cv.$lb-color-white});
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+  box-shadow: 0 0.5px 1px rgba(0, 0, 0, 0.04);
   cursor: pointer;
   user-select: none;
   vertical-align: middle;
-  transition:
-    color $lb-button-transition-duration ease,
-    background-color $lb-button-transition-duration ease,
-    border-color $lb-button-transition-duration ease,
-    box-shadow $lb-button-transition-duration ease,
-    opacity $lb-button-transition-duration ease,
-    filter $lb-button-transition-duration ease,
+  transition: color $lb-button-transition-duration ease, background-color $lb-button-transition-duration ease,
+    border-color $lb-button-transition-duration ease, box-shadow $lb-button-transition-duration ease,
+    opacity $lb-button-transition-duration ease, filter $lb-button-transition-duration ease,
     transform $lb-button-transition-duration ease;
+
   /* 避免小程序中点击高亮 */
   -webkit-tap-highlight-color: transparent;
 
@@ -39,14 +36,14 @@
     color: var(--lb-color-white, #{cv.$lb-color-white});
     background-color: var(--lb-color-primary, #{cv.$lb-color-primary});
     border-color: var(--lb-color-primary, #{cv.$lb-color-primary});
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
   }
 
   &--danger {
     color: var(--lb-color-white, #{cv.$lb-color-white});
     background-color: var(--lb-color-danger, #{cv.$lb-color-danger});
     border-color: var(--lb-color-danger, #{cv.$lb-color-danger});
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
   }
 
   &--text {
@@ -77,30 +74,30 @@
 
   /* 交互状态 */
   @media (hover: hover) and (pointer: fine) {
-    &--default:not(.lb-button--disabled):not(.lb-button--loading):hover {
+    &--default:not(.lb-button--disabled, .lb-button--loading):hover {
       color: var(--lb-color-primary, #{cv.$lb-color-primary});
       border-color: var(--lb-color-primary, #{cv.$lb-color-primary});
-      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
+      box-shadow: 0 1.5px 4px rgba(0, 0, 0, 0.08);
     }
 
-    &--primary:not(.lb-button--disabled):not(.lb-button--loading):hover,
-    &--danger:not(.lb-button--disabled):not(.lb-button--loading):hover {
+    &--primary:not(.lb-button--disabled, .lb-button--loading):hover,
+    &--danger:not(.lb-button--disabled, .lb-button--loading):hover {
       filter: brightness(1.08);
-      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.16);
+      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.16);
     }
 
-    &--text:not(.lb-button--disabled):not(.lb-button--loading):hover {
+    &--text:not(.lb-button--disabled, .lb-button--loading):hover {
       background-color: rgba(0, 0, 0, 0.04);
     }
   }
 
-  &:not(.lb-button--disabled):not(.lb-button--loading):active {
+  &:not(.lb-button--disabled, .lb-button--loading):active {
     filter: brightness(0.96);
     transform: scale(0.98);
   }
 
   &:focus-visible {
-    box-shadow: 0 0 0 3px var(--lb-color-focus-shadow, rgba(22, 119, 255, 0.2));
+    box-shadow: 0 0 0 1.5px var(--lb-color-focus-shadow, rgba(22, 119, 255, 0.2));
   }
 
   /* 禁用与加载态 */

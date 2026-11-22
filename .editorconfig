@@ -1,0 +1,10 @@
+root = true
+
+[*]
+charset = utf-8           # 编码为 utf-8
+indent_style = space      # 空格缩进(tab 派和空格派的战争就此结束)
+indent_size = 2           # 缩进 2 个空格
+end_of_line = lf          # 统一 LF——Windows 默认 CRLF,
+                     # 是「换行符改动污染整个 diff」的元凶
+insert_final_newline = true  # 每个文件最后添加一个空行
+trim_trailing_whitespace = true  # 移除每个文件最后的空格

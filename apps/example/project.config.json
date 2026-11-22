@@ -2,7 +2,7 @@
   "miniprogramRoot": "./dist",
   "projectname": "example",
   "description": "ui库的示例",
-  "appid": "touristappid",
+  "appid": "wx46ed9071cddb10f8",
   "setting": {
     "urlCheck": true,
     "es6": false,

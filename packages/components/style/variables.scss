@@ -3,7 +3,6 @@
    page, :root { --lb-color-primary: xxx; } 即可覆盖（不限文件、不限顺序）。 */
 $lb-color-primary: #1677ff !default; /* 品牌主色 */
 $lb-color-danger: #ee0a24 !default; /* 危险色 */
-$lb-color-text: #333333 !default; /* 主文本色 */
+$lb-color-text: #333 !default; /* 主文本色 */
 $lb-color-border: #e4e6eb !default; /* 边框/轨道底色 */
-$lb-color-white: #ffffff !default; /* 前景白色 */
-
+$lb-color-white: #fff !default; /* 前景白色 */
