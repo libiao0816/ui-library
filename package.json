@@ -9,18 +9,18 @@
     "dev:example": "pnpm --filter example dev:weapp",
     "dev:h5": "pnpm --filter example dev:h5",
     "dev:docs": "pnpm --filter lb-ui-docs dev",
-    "build": "pnpm --filter @lb/taro-ui build",
+    "build": "pnpm --filter lb-taro-ui build",
     "build:h5": "pnpm --filter example build:h5",
     "build:docs": "pnpm --filter lb-ui-docs build",
     "sync:h5": "rm -rf apps/docs/public/h5 && cp -R apps/example/dist apps/docs/public/h5",
     "build:site": "pnpm build:h5 && pnpm sync:h5 && pnpm build:docs",
-    "test": "pnpm --filter @lb/taro-ui test",
+    "test": "pnpm --filter lb-taro-ui test",
     "lint": "eslint \"{packages,apps}/*/src/**/*.{ts,tsx}\"",
     "changeset": "changeset",
     "release": "pnpm build && changeset publish",
     "prepare": "husky",
-    "publish": "pnpm --filter @lb/taro-ui publish",
-    "publish:dry": "pnpm --filter @lb/taro-ui publish --dry-run"
+    "publish": "pnpm --filter lb-taro-ui publish",
+    "publish:dry": "pnpm --filter lb-taro-ui publish --dry-run"
   },
   "commitlint": {
     "extends": [

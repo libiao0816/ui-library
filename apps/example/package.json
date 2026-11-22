@@ -22,7 +22,7 @@
   ],
   "author": "",
   "dependencies": {
-    "@lb/taro-ui": "workspace:*",
+    "lb-taro-ui": "workspace:*",
     "@babel/runtime": "^7.24.4",
     "@tarojs/components": "catalog:",
     "@tarojs/helper": "catalog:",

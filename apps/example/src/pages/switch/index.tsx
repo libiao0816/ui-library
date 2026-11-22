@@ -1,7 +1,7 @@
 import { View, Text } from '@tarojs/components'
-import { LbSwitch } from '@lb/taro-ui'
+import { LbSwitch } from 'lb-taro-ui'
 import { useState } from 'react'
-import '@lb/taro-ui/style/components/switch/index.scss'
+import 'lb-taro-ui/style/components/switch/index.scss'
 import './index.scss'
 
 export default function SwitchDemo() {

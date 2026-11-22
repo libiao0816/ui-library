@@ -26,5 +26,5 @@ jobs:
       - run: pnpm build
       - run: pnpm test
       - run: pnpm build:docs
-      - run: pnpm --filter @lb/taro-ui exec npm pack --dry-run
+      - run: pnpm --filter lb-taro-ui exec npm pack --dry-run
       

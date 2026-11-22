@@ -1,6 +1,6 @@
 import { View, Text } from '@tarojs/components'
-import { LbButton } from '@lb/taro-ui'
-import '@lb/taro-ui/style/components/button/index.scss'
+import { LbButton } from 'lb-taro-ui'
+import 'lb-taro-ui/style/components/button/index.scss'
 import './index.scss'
 
 export default function ButtonDemo() {

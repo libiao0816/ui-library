@@ -1,5 +1,5 @@
 {
-  "name": "@lb/taro-ui",
+  "name": "lb-taro-ui",
   "publishConfig": {
     "access": "public",
     "registry": "https://registry.npmjs.org"

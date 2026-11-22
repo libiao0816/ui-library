@@ -1,4 +1,4 @@
-# @lb/taro-ui
+# lb-taro-ui
 
 面向 Taro 3.6+ / 4.x + React 18 小程序的基础组件库。
 
@@ -11,14 +11,14 @@
 ## 安装
 
 ```bash
-pnpm add @lb/taro-ui
+pnpm add lb-taro-ui
 ```
 
 ## 使用
 
 ```tsx
-import { LbButton } from '@lb/taro-ui'
-import '@lb/taro-ui/style/components/button.scss'
+import { LbButton } from 'lb-taro-ui'
+import 'lb-taro-ui/style/components/button.scss'
 
 export default function Demo() {
   return <LbButton variant="primary">提交</LbButton>
@@ -42,7 +42,7 @@ export default function Demo() {
 在组件库样式之后引入你的主题文件：
 
 ```ts
-import '@lb/taro-ui/style/index.scss'
+import 'lb-taro-ui/style/index.scss'
 import './theme.scss'
 ```
 
