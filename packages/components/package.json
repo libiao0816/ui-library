@@ -73,7 +73,7 @@
     "test:watch": "jest --watch",
     "pack": "pnpm build && pnpm pack",
     "pack:dry": "pnpm build && npm pack --dry-run",
-    "publish": "pnpm publish",
-    "publish:dry": "pnpm publish --dry-run"
+    "release": "pnpm publish",
+    "release:dry": "pnpm publish --dry-run"
   }
 }

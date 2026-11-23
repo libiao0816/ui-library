@@ -31,6 +31,7 @@
     "extends": "stylelint-config-standard",
     "ignoreFiles": [
       "**/dist/**",
+      "**/public/**",
       "**/.dumi/tmp/**",
       "**/.dumi/tmp-production/**"
     ],
@@ -49,18 +50,13 @@
                 "forward",
                 "mixin",
                 "include",
-                "extend",
                 "function",
                 "return",
                 "if",
                 "else",
                 "each",
                 "for",
-                "content",
-                "error",
-                "warn",
-                "debug",
-                "at-root"
+                "extend"
               ]
             }
           ],
