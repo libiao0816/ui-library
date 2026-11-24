@@ -1,0 +1,48 @@
+name: release
+
+# 触发条件：main 分支的 push（含 PR 合并），进入版本管理与发布流程
+on:
+  push:
+    branches: [main]
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    # changesets 需要创建/更新 Release PR、推送 tag 和创建 GitHub Release
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
+      # 拉取完整提交历史（fetch-depth: 0），changesets 依赖历史记录生成版本号与 changelog
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      # 版本由根 package.json 的 packageManager 字段决定，此处不再重复声明
+      - uses: pnpm/action-setup@v4
+
+      # 安装 Node.js 20，启用 pnpm 缓存，并配置 npm 官方 registry 用于发布鉴权
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: pnpm
+          registry-url: https://registry.npmjs.org
+
+      # 严格按照锁文件安装依赖
+      - run: pnpm install --frozen-lockfile
+      # 发布前执行完整校验（与 ci.yaml 保持一致）
+      - run: pnpm lint
+      - run: pnpm build
+      - run: pnpm test
+
+      # changesets 动作：
+      # - 存在未消费的 changeset 时：创建/更新 "Version Packages" PR（升级版本号、生成 changelog）
+      # - 该 PR 合并后（无待消费 changeset 时）：执行 publish 发布到 npm，并创建 tag 与 GitHub Release
+      - uses: changesets/action@v1
+        with:
+          publish: pnpm changeset publish
+        env:
+          # 用于创建 Release PR、推送 tag 与创建 GitHub Release
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # npm 发布凭证（需在仓库 Secrets 中配置）
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}

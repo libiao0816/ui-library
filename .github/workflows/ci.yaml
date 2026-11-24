@@ -1,30 +1,37 @@
 name: ci
 
+# 触发条件：main / master 分支的 push，以及所有 Pull Request
 on:
   push:
     branches:
       - main
-      - master
   pull_request:
 
 jobs:
   verify:
     runs-on: ubuntu-latest
     steps:
+      # 拉取仓库代码
       - uses: actions/checkout@v4
 
       # 版本由根 package.json 的 packageManager 字段决定，此处不再重复声明
       - uses: pnpm/action-setup@v4
 
+      # 安装 Node.js 20，并启用 pnpm 依赖缓存以加速安装
       - uses: actions/setup-node@v4
         with:
           node-version: 20
           cache: pnpm
 
+      # 严格按照锁文件安装依赖，保证 CI 与本地依赖版本一致
       - run: pnpm install --frozen-lockfile
+      # ESLint 代码规范检查
       - run: pnpm lint
+      # 构建组件库 lb-taro-ui
       - run: pnpm build
+      # 运行组件库单元测试
       - run: pnpm test
+      # 构建文档站点 lb-ui-docs，确保文档可正常产出
       - run: pnpm build:docs
+      # 模拟打包 npm 发布产物（dry-run 不会真正发布），校验发布文件是否齐全
       - run: pnpm --filter lb-taro-ui exec npm pack --dry-run
-      
