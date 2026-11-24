@@ -4,7 +4,7 @@
     "access": "public",
     "registry": "https://registry.npmjs.org"
   },
-  "version": "0.0.2",
+  "version": "0.1.0",
   "description": "面向 Taro + React 小程序的组件库",
   "license": "MIT",
   "main": "lib/index.js",
