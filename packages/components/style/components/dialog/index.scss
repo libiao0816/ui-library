@@ -1,0 +1,63 @@
+@use '../../variables' as cv;
+@use './variables' as *;
+
+.lb-dialog {
+  position: fixed;
+  inset: 0;
+  z-index: $lb-dialog-z-index;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /* 遮罩层 */
+  &__mask {
+    position: absolute;
+    inset: 0;
+    background-color: $lb-dialog-mask-background;
+  }
+
+  /* 对话框主体 */
+  &__container {
+    position: relative;
+    box-sizing: border-box;
+    width: $lb-dialog-width;
+    max-width: calc(100vw - 48px);
+    padding: $lb-dialog-padding;
+    border-radius: $lb-dialog-border-radius;
+    background-color: var(--lb-color-white, #{cv.$lb-color-white});
+  }
+
+  /* 标题 */
+  &__title {
+    font-size: $lb-dialog-title-font-size;
+    font-weight: 600;
+    line-height: 1.4;
+    text-align: center;
+    color: var(--lb-color-text, #{cv.$lb-color-text});
+  }
+
+  /* 内容 */
+  &__content {
+    margin-top: $lb-dialog-content-margin-top;
+    font-size: $lb-dialog-content-font-size;
+    line-height: 1.6;
+    text-align: center;
+    color: var(--lb-color-text, #{cv.$lb-color-text});
+    word-break: break-all;
+  }
+
+  /* 底部按钮区 */
+  &__footer {
+    display: flex;
+    margin-top: $lb-dialog-footer-margin-top;
+
+    .lb-button {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .lb-button + .lb-button {
+      margin-left: $lb-dialog-footer-button-gap;
+    }
+  }
+}

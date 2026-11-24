@@ -61,7 +61,7 @@
     "typescript": "^5.6.0"
   },
   "scripts": {
-    "clean": "rimraf es lib types",
+    "clean": "rimraf es lib types *.tgz",
     "dev:esm": "cross-env BUILD_FORMAT=esm babel src --out-dir es --extensions .ts,.tsx --ignore '**/*.test.tsx,**/*.test.ts' --watch",
     "dev:types": "tsc -p tsconfig.build.json --watch",
     "build:esm": "cross-env BUILD_FORMAT=esm babel src --out-dir es --extensions .ts,.tsx --ignore '**/*.test.tsx,**/*.test.ts'",
@@ -69,10 +69,11 @@
     "build:types": "tsc -p tsconfig.build.json",
     "build": "pnpm clean && pnpm build:esm && pnpm build:cjs && pnpm build:types",
     "prepublishOnly": "pnpm build",
+    "prepack": "pnpm build",
     "test": "jest",
     "test:watch": "jest --watch",
-    "pack": "pnpm build && pnpm pack",
-    "pack:dry": "pnpm build && npm pack --dry-run",
+    "pack:dry": "pnpm pack --dry-run",
+    "pack": "pnpm pack",
     "release": "pnpm publish",
     "release:dry": "pnpm publish --dry-run"
   }

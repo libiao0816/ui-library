@@ -1,6 +1,7 @@
 {
   "name": "lb-ui-docs",
   "version": "0.0.1",
+  "private": true,
   "description": "A static site based on dumi",
   "scripts": {
     "start": "npm run dev",

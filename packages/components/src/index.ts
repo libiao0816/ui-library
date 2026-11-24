@@ -1,4 +1,6 @@
 export { LbButton } from './button'
 export type { ButtonProps } from './button'
+export { LbDialog } from './dialog'
+export type { DialogProps } from './dialog'
 export { LbSwitch } from './switch'
 export type { SwitchProps } from './switch'

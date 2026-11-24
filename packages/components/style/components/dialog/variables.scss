@@ -1,0 +1,16 @@
+/* Dialog 组件变量（尺寸与布局；颜色走 CSS 变量，见 ../../variables.scss）
+   尺寸基于 375 设计稿 */
+$lb-dialog-z-index: 1000 !default;
+$lb-dialog-width: 320px !default;
+$lb-dialog-border-radius: 12px !default;
+$lb-dialog-padding: 24px !default;
+$lb-dialog-mask-background: rgba(0, 0, 0, 0.6) !default;
+
+/* 标题与内容 */
+$lb-dialog-title-font-size: 17px !default;
+$lb-dialog-content-margin-top: 12px !default;
+$lb-dialog-content-font-size: 15px !default;
+
+/* 底部按钮区 */
+$lb-dialog-footer-margin-top: 24px !default;
+$lb-dialog-footer-button-gap: 12px !default;
